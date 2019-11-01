@@ -1,6 +1,5 @@
 <template>
   <div class="vue-pull-to-wrapper"
-       :style="{ height: wrapperHeight }"
        @transitionend="handleTransitionEnd">
     <div v-if="topLoadMethod"
          :style="{ height: `${topBlockHeight}px`, marginTop: `${-topBlockHeight}px` }"
@@ -79,10 +78,6 @@
       bottomBlockHeight: {
         type: Number,
         default: 50
-      },
-      wrapperHeight: {
-        type: String,
-        default: '100%'
       },
       topLoadMethod: Function,
       bottomLoadMethod: Function,
@@ -408,6 +403,8 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
   }
 
   .vue-pull-to-wrapper > .scroll-container {
